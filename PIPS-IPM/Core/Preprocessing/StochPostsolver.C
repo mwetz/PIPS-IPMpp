@@ -711,8 +711,8 @@ void StochPostsolver::markRowAdded(const INDEX& row) {
       getSimpleVecFromRowStochVec(*padding_origrow_inequality, row) = 1;
 }
 
-// todo : usage and check of padding origrow - can already be done - even without any dual postsolve stuff
-// todo : sort reductions by nodes ? and then reverse ?
+// TODO: usage and check of padding origrow - can already be done - even without any dual postsolve stuff
+// TODO: sort reductions by nodes ? and then reverse ?
 PostsolveStatus
 StochPostsolver::postsolve(const Variables& reduced_solution, Variables& original_solution, TerminationStatus result_code) {
    if (my_rank == 0)
@@ -720,7 +720,7 @@ StochPostsolver::postsolve(const Variables& reduced_solution, Variables& origina
 
    if (result_code != TerminationStatus::SUCCESSFUL_TERMINATION) {
       if (my_rank != 0)
-         std::cout << "prostsolving non-optimal solution - will not check tolerances\n";
+         std::cout << "postsolving non-optimal solution - will not check tolerances\n";
 
       postsolve_tol = std::numeric_limits<double>::max();
    }
@@ -1063,7 +1063,7 @@ bool StochPostsolver::postsolveBoundsTightened(DistributedVariables& original_va
     * TODO : assert that
     */
 
-   // TODO : reintroduce once scaling also scales termination criteria
+   // TODO: reintroduce once scaling also scales termination criteria
    //   assert( PIPSisLEFeas(0.0, complementarity) );
    // assert( PIPSisLT( complementarity, feas_tol ) );
    const double old_complementarity = slack * dual_bound;

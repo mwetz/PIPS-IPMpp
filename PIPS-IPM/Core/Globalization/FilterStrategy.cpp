@@ -64,7 +64,7 @@ bool FilterStrategy::check_acceptance(Residuals& current_residuals, Residuals& t
          }
       }
    }
-   // TODO remove
+   // TODO: remove
    //accept = true;
    return accept;
 }

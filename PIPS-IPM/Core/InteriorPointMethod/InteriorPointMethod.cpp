@@ -18,17 +18,32 @@ const unsigned int max_linesearch_points = 50;
 
 InteriorPointMethod::InteriorPointMethod(DistributedFactory& factory, Problem& problem, double dnorm, const Scaler* scaler) :
       dnorm(dnorm),
-      corrector_step(factory.make_variables(problem)), corrector_residuals(factory.make_residuals(problem)),
-      n_linesearch_points(pipsipmpp_options::get_int_parameter("GONDZIO_STOCH_N_LINESEARCH")), temp_step(factory.make_variables(problem)),
-      statistics(factory, scaler), bicgstab_skipped(false), bicgstab_converged(true), bigcstab_norm_res_rel(0.),
-      bicg_iterations(0), dynamic_corrector_schedule(pipsipmpp_options::get_bool_parameter("GONDZIO_STOCH_USE_DYNAMIC_CORRECTOR_SCHEDULE")),
+      corrector_step(factory.make_variables(problem)), 
+      corrector_residuals(factory.make_residuals(problem)),
+      n_linesearch_points(pipsipmpp_options::get_int_parameter("GONDZIO_STOCH_N_LINESEARCH")),
+      temp_step(factory.make_variables(problem)),
+      statistics(factory, scaler), bicgstab_skipped(false),
+      bicgstab_converged(true),
+      bigcstab_norm_res_rel(0.),
+      bicg_iterations(0),
+      dynamic_corrector_schedule(pipsipmpp_options::get_bool_parameter("GONDZIO_STOCH_USE_DYNAMIC_CORRECTOR_SCHEDULE")),
       additional_correctors_small_comp_pairs(pipsipmpp_options::get_bool_parameter("GONDZIO_STOCH_ADDITIONAL_CORRECTORS_SMALL_VARS")),
       max_additional_correctors(pipsipmpp_options::get_int_parameter("GONDZIO_STOCH_ADDITIONAL_CORRECTORS_MAX")),
       first_iter_small_correctors(pipsipmpp_options::get_int_parameter("GONDZIO_STOCH_FIRST_ITER_SMALL_CORRECTORS")),
-      max_alpha_small_correctors(pipsipmpp_options::get_double_parameter("GONDZIO_STOCH_MAX_ALPHA_SMALL_CORRECTORS")), number_small_correctors(0),
-      maximum_correctors(options::get_int_parameter("GONDZIO_MAX_CORRECTORS")), number_gondzio_corrections(0), step_factor0(0.3), step_factor1(1.5),
-      acceptance_tolerance(0.01), beta_min(0.1), beta_max(10), dynamic_bicg_tol(pipsipmpp_options::get_bool_parameter("OUTER_BICG_DYNAMIC_TOL")),
-      tsig(3.), pure_centering_step(false), numerical_troubles(false), precond_decreased(true) {
+      max_alpha_small_correctors(pipsipmpp_options::get_double_parameter("GONDZIO_STOCH_MAX_ALPHA_SMALL_CORRECTORS")),
+      number_small_correctors(0),
+      maximum_correctors(options::get_int_parameter("GONDZIO_MAX_CORRECTORS")),
+      number_gondzio_corrections(0),
+      step_factor0(0.3),
+      step_factor1(1.5),
+      acceptance_tolerance(0.01),
+      beta_min(0.1),
+      beta_max(10),
+      dynamic_bicg_tol(pipsipmpp_options::get_bool_parameter("OUTER_BICG_DYNAMIC_TOL")),
+      tsig(3.),
+      pure_centering_step(false),
+      numerical_troubles(false),
+      precond_decreased(true) {
    assert(max_additional_correctors > 0);
    assert(first_iter_small_correctors >= 0);
    assert(0 < max_alpha_small_correctors && max_alpha_small_correctors < 1);
@@ -94,7 +109,7 @@ void PrimalInteriorPointMethod::compute_fraction_to_boundary(const Variables& it
 }
 
 void PrimalDualInteriorPointMethod::compute_fraction_to_boundary(const Variables& iterate, const Variables& step, double fraction) {
-   // TODO use fraction
+   // TODO: use fraction
    std::tie(this->primal_step_length, this->dual_step_length) = iterate.stepbound_pd(step);
 }
 

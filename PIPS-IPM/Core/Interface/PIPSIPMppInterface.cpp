@@ -77,7 +77,7 @@ scaler_type, PresolverType presolver_type, const std::string& settings) : comm(c
    if (pipsipmpp_options::get_bool_parameter("PARDISO_FOR_GLOBAL_SC"))
       dynamic_cast<DistributedProblem&>(*presolved_problem).activateLinkStructureExploitation();
 
-   // TODO : save "old" data somewhere?
+   // TODO: save "old" data somewhere?
    if (pipsipmpp_options::get_bool_parameter("HIERARCHICAL")) {
       if (my_rank == 0)
          std::cout << "Using hierarchical approach!\n";
@@ -137,7 +137,7 @@ TerminationStatus PIPSIPMppInterface::run() {
 
    if (my_rank == 0) {
       const auto& qp_presolved_problem = dynamic_cast<DistributedProblem&>(*presolved_problem);
-      // TODO : use unlifted data....
+      // TODO: use unlifted data....
       if (!pipsipmpp_options::get_bool_parameter("HIERARCHICAL")) {
          std::cout << "1st stage " << qp_presolved_problem.getLocalnx() << " variables, " << qp_presolved_problem.getLocalmy()
                    << " equality constraints, " << qp_presolved_problem.getLocalmz() << " inequality constraints.\n";
@@ -534,8 +534,8 @@ void PIPSIPMppInterface::postsolveComputedSolution() {
    assert(original_problem);
    assert(presolved_problem);
 
-#if !defined(NDEBUG) && defined(PRESOLVE_POSTSOLVE_ONLY) // todo : resids for C also need recomputation.. - s variable
-   /* todo: randomize all vectors x since it has not actually been set to anything */
+#if !defined(NDEBUG) && defined(PRESOLVE_POSTSOLVE_ONLY) // TODO: resids for C also need recomputation.. - s variable
+   /* TODO: randomize all vectors x since it has not actually been set to anything */
    vars->x->setToConstant(0.1);
    resids->evaluate(data, vars);
 #endif
