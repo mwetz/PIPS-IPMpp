@@ -265,9 +265,7 @@ void gmspips_reader::write_solution(PIPSIPMppInterface& solver_instance, const s
 
    if (solver_instance.termination_status() != TerminationStatus::SUCCESSFUL_TERMINATION) {
       if (my_rank == 0)
-         std::cout << "Not printing solution even though requested - PIPSIPMpp solve did not terminate successfully!\n";
-
-      return;
+         std::cout << "Priting solution although PIPSIPMpp solve did not terminate successfully!\n";
    }
 
    const double objective = solver_instance.getObjective();
