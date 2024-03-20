@@ -8,18 +8,13 @@
 #define TERMINATIONSTATUS_H
 
 enum class TerminationStatus {
-   SUCCESSFUL_TERMINATION = 0, NOT_FINISHED, MAX_ITS_EXCEEDED, INFEASIBLE, UNKNOWN, DID_NOT_RUN
+    SUCCESSFUL_TERMINATION = 0,
+    NOT_FINISHED,
+    MAX_ITS_EXCEEDED,
+    INFEASIBLE,
+    UNKNOWN,
+    DID_NOT_RUN
 };
 
-std::ostream& operator<<(std::ostream& os, TerminationStatus status);
+std::ostream &operator<<(std::ostream &os, TerminationStatus status);
 #endif
-
-
-
-
-
-
-
-
-
-
