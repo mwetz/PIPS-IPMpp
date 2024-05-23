@@ -49,7 +49,7 @@ Even though this step is theoretically optional, we **highly recommend** using P
 
 4. **OPTIONAL:** Obtain a **PARDISO** (best >= 7.2) license and download PARDISO from [here](http://www.pardiso-project.org/).
 
-    Copy the correct PARDISO library (the one compiled with GNU - this step might depend on your system and which version of gclib is used there - check out [this stack overflow answer](https://stackoverflow.com/questions/57155333/undefined-reference-to-log2fglibc-2-27-undefined-reference-to-logfglibc-2-2/61729571#61729571) for more info) as **libpardiso.so** into the folder ThirdPartyLibs/PARDISO/src.
+    Copy the correct PARDISO library (the one compiled with GNU - this step might depend on your system and which version of glibc is used there - check out [this stack overflow answer](https://stackoverflow.com/questions/57155333/undefined-reference-to-log2fglibc-2-27-undefined-reference-to-logfglibc-2-2/61729571#61729571) for more info) as **libpardiso.so** into the folder ThirdPartyLibs/PARDISO/src.
    ```
    cp pardiso_lib_name <pips_root>/ThirdPartyLibs/PARDISO/src
    ```
@@ -136,7 +136,7 @@ Developed by:
 Contributions from:
   * Svenja Uslu 
 
-We thank for their work on interfaces/testing/bug reoprting and general support
+We thank for their work on interfaces/testing/bug reporting and general support
   * Thomas Breuer (FZ Juelich)
   * Michael Bussieck (GAMS)
   * Henrik Büsing (FZ Juelich)
@@ -159,8 +159,6 @@ PIPS-IPM++ is derivative work of PIPS-IPM. While the original code retains its o
 See LICENSE file.
 
 PIPS-IPM is derivative work of OOQP (http://pages.cs.wisc.edu/~swright/ooqp/) by E. Michael Gertz and Stephen Wright.
-
-Currently PIPS is not public / open souce, but this is about to change.
 
 # ACKNOWLEDGMENTS
 

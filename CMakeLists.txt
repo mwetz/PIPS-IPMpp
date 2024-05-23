@@ -24,7 +24,7 @@ message(STATUS "MPIEXEC_NUMPROC_FLAG=${MPIEXEC_NUMPROC_FLAG}")
 
 include_directories(SYSTEM ${MPI_CXX_INCLUDE_DIRS})
 
-# WATCH OUT : these iwll be added to all executables - also the GAMS part - this might or might not lead to many warnings
+# WATCH OUT : these will be added to all executables - also the GAMS part - this might or might not lead to many warnings
 # add gmspips/pips specific WARNINGS via target_compile_options in PIPS-IPM/CMakeLists.txt
  
 ### TODO: introduce Wextra/pedantic -Wconversion -Wno-zero-as-null-pointer-const maybe
@@ -67,8 +67,8 @@ message(STATUS "WITH_TIMING=${WITH_TIMING}")
 option(WITH_VERBOSE "Build with extra verbosity level" OFF)
 message(STATUS "WITH_VERBOSE=${WITH_VERBOSE}")
 
-option(WITH_MEMORY_SANITIZER "Build with sanatizer flag - useful for finding memory leaks - slower!" OFF)
-message(STATUS "WTIH_MEMORY_SANITIZER=${WITH_MEMORY_SANITIZER}")
+option(WITH_MEMORY_SANITIZER "Build with sanitizer flag - useful for finding memory leaks - slower!" OFF)
+message(STATUS "WITH_MEMORY_SANITIZER=${WITH_MEMORY_SANITIZER}")
 
 if(WITH_MEMORY_SANITIZER)
    set(SANITIZER_C_CXX_FLAGS -fsanitize=address,undefined -fno-omit-frame-pointer -g)
@@ -161,7 +161,7 @@ if(NOT Boost_FOUND)
    message(FATAL_ERROR "Configuration aborted due to missing BOOST libraries!")
 else(NOT Boost_FOUND)
    message(STATUS "Boost ... found")
-   message(STATUS "Boost inlcude dir at ${Boost_INCLUDE_DIRS}")
+   message(STATUS "Boost include dir at ${Boost_INCLUDE_DIRS}")
 endif(NOT Boost_FOUND)
 
 ########################################

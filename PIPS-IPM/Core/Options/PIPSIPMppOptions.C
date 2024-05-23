@@ -244,7 +244,7 @@ namespace pipsipmpp_options {
 
       /** should all columns be computed at once when computing the hierarchical schur complements ?
        * this will render SC_BLOCKSIZE_HIERARCHICAL obsolete but might consume big amounts of memory and
-       * might fail if columns * length columns is too big (stroage allocation might fail)
+       * might fail if columns * length columns is too big (storage allocation might fail)
        */
       bool_options["SC_HIERARCHICAL_COMPUTE_BLOCKWISE"] = true;
 
