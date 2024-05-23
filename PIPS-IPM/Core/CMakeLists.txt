@@ -35,7 +35,7 @@ target_include_directories(pips-ipmpp
         Problems
         Readers
         Utilities
-        ${BOOST_INCLUDE_DIRS}
+        ${Boost_INCLUDE_DIRS}
     PUBLIC
         Readers/Distributed
     )
